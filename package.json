@@ -1,0 +1,26 @@
+{
+  "name": "jamquiz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "node-spotify-api": "^1.0.7",
+    "spotify": "^0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4n4st4s14/jamquiz.git"
+  },
+  "author": "ani cory max",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/4n4st4s14/jamquiz/issues"
+  },
+  "homepage": "https://github.com/4n4st4s14/jamquiz#readme"
+}
