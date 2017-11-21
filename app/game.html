@@ -36,7 +36,61 @@ Logo
 ROW 2
 left:
 Guess section-->
-  </div>
+
+<!-- User Guess Form -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Time to Guess!</h4>
+        </div>
+        <div class="panel-body">
+
+          <form role="form">
+
+            <div class="form-group">
+            <!--  <label for="reserve-name"></label> -->
+              <input type="text" class="form-control" id="song-guess"
+              placeholder="Enter Song Title">
+            </div>
+
+            <button type="submit" class="btn btn-primary submit">Submit</button>
+          </form>
+
+<script type="text/javascript">
+
+// Code for front-end JavaScript to "post" user entry for the song guess from our form and send it to the express server.
+//When user submits info, jQuery will grab the song input field and send a post request to our API.
+
+  $(".submit").on("click", function(event)
+  {
+  event.preventDefault();
+
+  //take userGuess form element input
+  var guess =
+  {
+  userSongGuess: $("#song-guess").val().trim()
+  };
+
+  console.log(guess);
+
+  //clear the form when submitting
+  $("#song-guess").val("");
+
+  });
+
+  $.post("/api/game"), guess,
+  function(data)
+  {
+  
+
+  };
+
+</script>
+
+        </div>
+      </div> <!-- end user guess form -->
+  </div> <!-- end column -->
+
+
 
   <div class="col-sm-4">
 <!-- right:
