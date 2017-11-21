@@ -13,6 +13,7 @@
  var path = require('path');
 
  var spotify = require("node-spotify-api");
+ var SpotifyWebApi = require('spotify-web-api-node');
 
  var PORT = process.env.PORT || 8080;
  var bodyParser = require('body-parser')
