@@ -1,3 +1,7 @@
+
+
+console.log(userGuess.guess.userSongGuess);
+
 module.exports = function(app) {
   app.get('/keys', function(req, res) {
     res.send('jake');
