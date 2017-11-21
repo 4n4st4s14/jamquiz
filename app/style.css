@@ -59,7 +59,7 @@ input#volume::-webkit-slider-thumb{
 }
 
 
-#buttons{
+#audio-button{
   width: 90%;
   display: block;
   margin: 15px auto;
@@ -143,6 +143,8 @@ button#next{
 
 #duration{
   position: absolute;
+  height: 23px;
+  width: 43px;
   top: 0;
   right: 10px;
   padding: 4px 8px;

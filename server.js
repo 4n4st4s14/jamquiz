@@ -15,7 +15,7 @@
  var spotify = require("node-spotify-api");
 
  var PORT = process.env.PORT || 8080;
-var bodyParser = require('body-parser')
+ var bodyParser = require('body-parser')
 
 
  // parse application/x-www-form-urlencoded
@@ -24,7 +24,7 @@ var bodyParser = require('body-parser')
  // parse application/json
  app.use(bodyParser.json())
 
- require('./routing/apiroutes.js')(app);
+ //require('./routing/apiroutes.js')(app);
  require('./routing/htmlroutes.js')(app);
 
  app.listen(PORT, function(){
