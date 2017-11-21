@@ -43,7 +43,7 @@ Guess section-->
         </div>
         <div class="panel-body">
 
-          <form role="form">
+          <form method="POST" role="form">
 
             <div class="form-group">
             <!--  <label for="reserve-name"></label> -->
@@ -76,12 +76,16 @@ Guess section-->
 
   });
 
-  $.post("/api/game"), guess,
-  function(data)
-  {
+//   $.post("/api/game", guess)
+//   function(data)
+//   {
+// console.log(guess);
+//
+//   };
 
-
-  };
+  // $.ajax({url: "/game", success:function(guess){
+  //   console.log(guess);
+  // }})
 
 </script>
 

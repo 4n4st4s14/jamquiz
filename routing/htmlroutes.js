@@ -8,7 +8,7 @@ module.exports = function(app){
 
 //A default, catch-all route that leads to home.html which displays the home page.
   app.use(function(req, res){
-    res.sendFile(path.join(__dirname + '/../app/welcome.html'));
+    res.sendFile(path.join(__dirname + '/../app/index.html'));
   });
 
 }

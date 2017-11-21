@@ -3,8 +3,11 @@ module.exports = function(app) {
     res.send('jake');
   });
 
+
   app.get('/spotify', function(req, res) {
     var Spotify = require("node-spotify-api");
+
+var SpotifyWebApi = require('spotify-web-api-node');
 
     // var keyList = require("keys.js")
 
@@ -13,17 +16,35 @@ module.exports = function(app) {
       secret: '98e7a54c12364f48b022bf2de33c3cb9'
     });
 
+    var spotifyApi = new SpotifyWebApi({
+  clientId : '8c539bcca28c4bc5b89dcccdd09be68d',
+  clientSecret : '98e7a54c12364f48b022bf2de33c3cb9',
+  //redirectUri : 'http://www.example.com/callback'
+});
+
     console.log(spotify);
     //start api call
-
-    // Spotify.search({
+    SpotifyWebApi.searchPlaylists('workout')
+      .then(function(data) {
+        console.log('Found playlists are', data.body);
+      }, function(err) {
+        console.log('Something went wrong!', err);
+      });
+    // var artistNames = function(artist){
+    //   return artist.name;
+    // };
+    // spotify.search({
     //   type: 'track',
-    //   query: songName
+    //   query: 'toxic'
     // }, function(err, data) {
     //   if (err) {
     //     return console.log('Error occurred: ' + err);
     //   }
-    //   var client = new spotify(keyList);
+    //
+    //   var spotify = new Spotify({
+    //     id: '8c539bcca28c4bc5b89dcccdd09be68d',
+    //     secret: '98e7a54c12364f48b022bf2de33c3cb9'
+    //   });
     //
     //   var params = {
     //     screen_name: "Mildred_Bonk_",
@@ -47,4 +68,10 @@ module.exports = function(app) {
     // });
     res.json(spotify)
   })
+
+// app.get('/game', function(req, res){
+//   var guess = req.body;
+//   console.log(guess);
+// });
+
 }
