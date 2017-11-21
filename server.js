@@ -17,14 +17,14 @@
  var PORT = process.env.PORT || 8080;
  var bodyParser = require('body-parser')
 
-
+ app.use(express.static('app/public'))
  // parse application/x-www-form-urlencoded
  app.use(bodyParser.urlencoded({ extended: false }));
 
  // parse application/json
  app.use(bodyParser.json())
 
- //require('./routing/apiroutes.js')(app);
+ require('./routing/apiroutes.js')(app);
  require('./routing/htmlroutes.js')(app);
 
  app.listen(PORT, function(){
