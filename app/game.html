@@ -34,6 +34,7 @@ Logo
 ROW 2
 left:
 Guess section-->
+<div id="guesses"></div>
 
 
 <!-- User Guess Form -->
@@ -58,47 +59,67 @@ Guess section-->
 
 // Code for front-end JavaScript to "post" user entry for the song guess from our form and send it to the express server.
 //When user submits info, jQuery will grab the song input field and send a post request to our API.
-
+//gues button logic
   $(".submit").on("click", function(event)
   {
   event.preventDefault();
 
   //take userGuess form element input
-  var guess =
-  {
-  userSongGuess: $("#song-guess").val().trim()
-  };
-
-  console.log(guess.userSongGuess);
-
-  // Loop to create and display previous user guesses
-  // in dynamically made Divs
-
-  for (var i = 0; i < tableData.length; i++) {
-
-    // Create the HTML Well (Section) and Add the table content for each reserved table
-    var oldGuessSpot = $("<div>");
-    oldGuessSpot.addClass("well");
-    tableSection.attr("id", "tableWell-" + i + 1);
-    $("#tableSection").append(guess.userSongGuess);
-
-    var tableNumber = i + 1;
-
-
-    // Then display the remaining fields in the HTML (Section Name, Date, URL)
-    $("#tableWell-" + i + 1).append("<h2><span class='label label-primary'>" + tableNumber + "</span> | " + tableData[i].customerID + "</h2>");
-  }
-
-  //clears the form after submit
-  $("#song-guess").val("");
-
+  var guess = $('#song-guess').val().trim();
+  //console.log(guess);
+  $.post("http://localhost:8080/game", { guess : guess}, function(data){
+    if(data==='done'){
+      alert('success');
+    }
   });
 
-//  $.post("/api/game"), guess,
-//  function(data)
-  {
+
+  //    // Create the HTML Well (Section) and Add the table content for each reserved table
+      var oldGuessSpot = $("<div>");
+      oldGuessSpot.text(guess);
+      //tableSection.attr("id", "tableWell-" + i + 1);
+     $("#guesses").append(oldGuessSpot);
 
 
+});
+//end guess button
+
+
+
+  // {
+  // userSongGuess: $("#song-guess").val().trim()
+  // };
+  //
+  // console.log(guess.userSongGuess);
+//});
+  // Loop to create and display previous user guesses
+  // in dynamically made Divs
+ //
+   //for (var i = 0; i < 2; i++) {
+ //
+ //    // Create the HTML Well (Section) and Add the table content for each reserved table
+ //    var oldGuessSpot = $("<div>");
+ //    oldGuessSpot.addClass("well");
+ //    tableSection.attr("id", "tableWell-" + i + 1);
+ //    $("#guesses").append(guess.userSongGuess);
+ //
+ //    var tableNumber = i + 1;
+ //
+ //
+ //    // Then display the remaining fields in the HTML (Section Name, Date, URL)
+ //    $("#tableWell-" + i + 1).append("<h2><span class='label label-primary'>" + tableNumber + "</span> | " + tableData[i].customerID + "</h2>");
+ //  }
+ //
+ //  //clears the form after submit
+ //  $("#song-guess").val("");
+ //
+ //  });
+ //
+ // $.post("/api/game"), guess,
+ // function(data)
+ //
+ //
+ //
   // $.ajax({url: "/game", success:function(guess){
   //   console.log(guess);
   // }})
@@ -125,6 +146,7 @@ timer -->
 
       <div class="col-sm-4">
 
+
       </div>
       <!--
 ROW 3
@@ -134,6 +156,9 @@ Audio VIsual space
 Center:
 Music player/ something function
 game starts-->
+<div id="audioPlay"><button type="button" id="play"class="btn btn-primary submit">Play</button></div>
+
+
       <div class="col-sm-4">
 
       </div>
@@ -182,7 +207,8 @@ Hints Section
   <!-- end container
 src="./spotify.js"
 -->
-  <script type="text/javascript" src="/js/spotify.js"></script>
+
+<script type="text/javascript" src="/js/spotify.js"></script>
 </body>
 
 

@@ -1,81 +1,118 @@
 
-
-console.log(userGuess.guess.userSongGuess);
+var Spotify = require("node-spotify-api");
+var request = require("request");
+var bodyParser = require('body-parser');
+//console.log(userGuess.guess.userSongGuess);
 
 module.exports = function(app) {
   app.get('/keys', function(req, res) {
     res.send('jake');
   });
 
-
-  app.get('/spotify', function(req, res) {
+//called when the play button is clicked(for now)
+  app.post('/spotify', function(req, res) {
     var Spotify = require("node-spotify-api");
+    var request = require("request");
+    var bodyParser = require('body-parser');
 
-var SpotifyWebApi = require('spotify-web-api-node');
 
-    // var keyList = require("keys.js")
 
-    var spotify = new Spotify({
-      id: '8c539bcca28c4bc5b89dcccdd09be68d',
-      secret: '98e7a54c12364f48b022bf2de33c3cb9'
-    });
+    //function to parse artist name from spotify- requires external call
+        var artistNames = function(artist){
+          return artist.name;
+        };
+        //spotify function
+    //our songs :)
+    var songs = ['the fresh prince of bel-air', 'carry the zero', 'toxic', 'bodak yellow'];
 
-    var spotifyApi = new SpotifyWebApi({
-  clientId : '8c539bcca28c4bc5b89dcccdd09be68d',
-  clientSecret : '98e7a54c12364f48b022bf2de33c3cb9',
-  //redirectUri : 'http://www.example.com/callback'
-});
+    var info;
+    var previewUrl;
+    var songTitle;
+    var artist;
+    //var dataArr = [];
+    var urls = [];
+    //callback function, in order to make the data array accessible outside the //loop,
+    //for loop getting info & audio of our songs from spotify
 
-    console.log(spotify);
-    //start api call
-    SpotifyWebApi.searchPlaylists('workout')
-      .then(function(data) {
-        console.log('Found playlists are', data.body);
-      }, function(err) {
-        console.log('Something went wrong!', err);
-      });
-    // var artistNames = function(artist){
-    //   return artist.name;
-    // };
-    // spotify.search({
-    //   type: 'track',
-    //   query: 'toxic'
-    // }, function(err, data) {
-    //   if (err) {
-    //     return console.log('Error occurred: ' + err);
-    //   }
-    //
-    //   var spotify = new Spotify({
-    //     id: '8c539bcca28c4bc5b89dcccdd09be68d',
-    //     secret: '98e7a54c12364f48b022bf2de33c3cb9'
-    //   });
-    //
-    //   var params = {
-    //     screen_name: "Mildred_Bonk_",
-    //     count: 20
-    //   };
-    //
-    //   var songs = data.tracks.items;
-    //   var dataArr = [];
-    //
-    //   //loop through results and push to array
-    //
-    //   for (var i = 0; i < songs.length; i++) {
-    //     dataArr.push({
-    //       'Artist(s): ': songs[i].artists.map(artistNames),
-    //       'Song Name: ': songs[i].name,
-    //       'Link: ': songs[i].preview_url,
-    //       'Album: ': songs[i].album.name,
-    //
-    //     })
-    //   }
-    // });
-    res.json(spotify)
+    let getAllData = function(songs, cb){
+
+          var dataArr = [];
+          for (var i=0; i<songs.length; i++){
+
+            var spotify = new Spotify({
+              id: '8c539bcca28c4bc5b89dcccdd09be68d',
+              secret: '98e7a54c12364f48b022bf2de33c3cb9'
+            });
+    //search function looping through songs
+        spotify.search({ type: 'track', query: songs[i], limit: 1 }, function(err, data) {
+          if (err) {
+            return console.log('Error occurred: ' + err);
+          }
+
+             info = data.tracks.items;
+             previewUrl = info[0].preview_url;
+             songTitle= info[0].name;
+             artist = info[0].artists.map(artistNames);
+
+            // console.log(previewUrl);
+            // console.log(songTitle);
+            // console.log(artist);
+
+            // push data to array
+              dataArr.push({
+                "url": previewUrl,
+                "title": songTitle,
+                "artist": artist
+              });
+              // console.log("data array:  " + dataArr);
+             //console.log(JSON.stringify(dataArr));
+
+             cb(dataArr);
+
+            });
+
+            }
+
+
+          }
+
+          getAllData(songs,function(data){
+            console.log('data');
+            //console.log(data);
+            //console.log(data.length)
+
+            for(var i=0; i< data.length; i++){
+                  //console.log(data[i].url);
+
+              //urls.push(data[i].url);
+            //console.log(urls);
+
+            //this file doesn't understand jQuery. working on it.
+            // var audio = $("<audio autoplay>");
+            // audio.attr("src", data[0].url+".mp3");
+            // $("#audioPlay").append(audio);
+            // console.log(guess);
+            //console.log('clicked');
+
+          };
+          console.log(JSON.stringify(data));
+
+        });
+
+               //console.log(JSON.stringify(data));
+
+               res.json(dataArr);
+
+   //console.log(JSON.stringify(dataArr));
+
+    //res.json(dataArr)
   })
 
-// app.get('/game', function(req, res){
-//   var guess = req.body;
-//   console.log(guess);
-// });
+//post logs user guess from html form on back end
+app.post('/game', function(req, res){
+  var guess = req.body.guess;
+  console.log(guess);
+});
+
 
 }

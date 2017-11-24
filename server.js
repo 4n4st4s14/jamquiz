@@ -9,11 +9,19 @@
  */
  var express = require('express'); // Express web server framework
  var app = express();
+ var request = require('request');
+ var cookieParser = require('cookie-parser');
 
+ var querystring = require('querystring');
  var path = require('path');
 
  var spotify = require("node-spotify-api");
- var SpotifyWebApi = require('spotify-web-api-node');
+
+
+
+ // var request = require('request'); // "Request" library
+ // var querystring = require('querystring');
+ // var cookieParser = require('cookie-parser');
 
  var PORT = process.env.PORT || 8080;
  var bodyParser = require('body-parser')
@@ -27,6 +35,7 @@
 
  require('./routing/apiroutes.js')(app);
  require('./routing/htmlroutes.js')(app);
+
 
  app.listen(PORT, function(){
    console.log("App listening on port: " + PORT);
