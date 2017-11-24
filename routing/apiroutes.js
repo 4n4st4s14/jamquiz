@@ -2,6 +2,7 @@
 var Spotify = require("node-spotify-api");
 var request = require("request");
 var bodyParser = require('body-parser');
+var cheerio = require('cheerio');
 //console.log(userGuess.guess.userSongGuess);
 
 module.exports = function(app) {
@@ -84,24 +85,24 @@ module.exports = function(app) {
             for(var i=0; i< data.length; i++){
                   //console.log(data[i].url);
 
-              //urls.push(data[i].url);
-            //console.log(urls);
+              urls.push(data[i].url);
+            console.log(urls);
 
             //this file doesn't understand jQuery. working on it.
-            // var audio = $("<audio autoplay>");
-            // audio.attr("src", data[0].url+".mp3");
-            // $("#audioPlay").append(audio);
-            // console.log(guess);
-            //console.log('clicked');
+            var audio = $("<audio autoplay>");
+            audio.attr("src", data[0].url+".mp3");
+            $("#audioPlay").append(audio);
+
+            console.log('clicked');
 
           };
-          console.log(JSON.stringify(data));
+        //  console.log(JSON.stringify(data));
 
         });
 
                //console.log(JSON.stringify(data));
 
-               res.json(dataArr);
+            //   res.json(dataArr);
 
    //console.log(JSON.stringify(dataArr));
 
