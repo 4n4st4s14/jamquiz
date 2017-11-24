@@ -4,6 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <title>JamQuiz.</title>
+
+  <link rel="stylesheet" type="text/css" href="./public/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css"> 
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
   <!--jquery-->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
@@ -17,17 +23,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="game">
 
-  <div class="container">
-    <div class="row">
-      <!-- center
-ROW 1
-Logo
--->
-      <h1>JAMQUIZ</h1>
-    </div>
+<!-- //ROW 1 : Title -->
+<center>
+ <h5> JAM!QUIZ! </h5>
+</center>
 
+<<<<<<< HEAD
+<!-- //ROW 2 : Guess Input, Timer & Points Based Timer -->
+=======
     <div class="row">
       <div class="col-sm 4">
         <!-- Left Top
@@ -35,12 +40,16 @@ ROW 2
 left:
 Guess section-->
 <div id="guesses"></div>
+>>>>>>> b433cc4ea86aabec2d3d19b68868f656c33d7336
 
+<div class="container">
+  <div class="guess" id="guess">
+    <div class="row">
 
 <!-- User Guess Form -->
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4 class="panel-title">Time to Guess!</h4>
+          <p class="panel-title"> Time to Guess! </p>
         </div>
         <div class="panel-body">
 
@@ -52,7 +61,7 @@ Guess section-->
               placeholder="Enter Song Title">
             </div>
 
-            <button type="submit" class="btn btn-primary submit">Submit</button>
+            <button type="submit" class="btn btn-secondary submit">Submit</button>
           </form>
 
 <script type="text/javascript">
@@ -125,27 +134,12 @@ Guess section-->
   // }})
 
 </script>
+</div>
 
-        </div>
-      </div> <!-- end user guess form -->
-  </div> <!-- end column -->
+ 
 
-
-
-      </div>
-
-
-      <div class="col-sm-4">
-        <!-- right:
-timer -->
-
-      </div>
-    </div>
-
-    <div class="row">
-
-      <div class="col-sm-4">
-
+<<<<<<< HEAD
+=======
 
       </div>
       <!--
@@ -193,21 +187,26 @@ Shows total points accumulated
 
       </div>
     </div>
+>>>>>>> b433cc4ea86aabec2d3d19b68868f656c33d7336
 
+  
+<!--  //Footer : Route Home -->
+<div id="gameFooter" class="gameFooter">
+  <div class="div1">
+  <a href="index.html"><font color="white"> Home </font></a>
+  </div>
+</div>
 
-    <div class="row">
-      <!--
-ROW 5
-ACross Screen ROW
-Hints Section
--->
-    </div>
+<!-- //JAVASCRIPT & JQUERY -->
 
+<<<<<<< HEAD
+=======
   </div>
   <!-- end container
 src="./spotify.js"
 -->
 
+>>>>>>> b433cc4ea86aabec2d3d19b68868f656c33d7336
 <script type="text/javascript" src="/js/spotify.js"></script>
 </body>
 
