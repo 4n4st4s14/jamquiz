@@ -1,10 +1,5 @@
 console.log("linked!");
 
-// $.ajax({url: "/spotify", success: function(result){
-//     console.log(result)
-// //   }})
-// //
-
 // Code for front-end JavaScript to "post" user entry for the song guess from our form and send it to the express server.
 //When user submits info, jQuery will grab the song input field and send a post request to our API.
 //gues button logic
@@ -64,10 +59,10 @@ $.post("http://localhost:8080/spotify", function(data){
 
 });
 //next button
-var counter = 1;
+var counter = 0;
 
 $.post("http://localhost:8080/spotify", function(data){
-
+ counter= 0;
 
 function makeAudio(){
   console.log(data);
@@ -80,7 +75,7 @@ function makeAudio(){
 
 //counter++;
 if(counter > 10){
-  counter = 1;
+  counter = 0;
 } else {
   counter++
 }

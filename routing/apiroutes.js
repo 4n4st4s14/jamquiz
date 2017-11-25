@@ -32,6 +32,7 @@ module.exports = function(app) {
     var artist;
     //var dataArr = [];
     var urls = [];
+    var uniqueUrls = [];
     var titles = [];
     //callback function, in order to make the data array accessible outside the //loop,
     //for loop getting info & audio of our songs from spotify
@@ -68,19 +69,18 @@ module.exports = function(app) {
               });
               // console.log("data array:  " + dataArr);
              //console.log(JSON.stringify(dataArr));
-
+             //callback to parse dataArr
              cb(dataArr);
 
             });
 
             }
 
-
           }
 
           getAllData(songs,function(data){
-            console.log('data');
-            console.log(data);
+          //  console.log('data');
+            //console.log(data);
             //console.log(data.length)
 
             for(var i=0; i< songs.length; i++){
@@ -88,32 +88,28 @@ module.exports = function(app) {
 
               urls.push(data[i].url);
               titles.push(data[i].title);
+
+              //to sort duplicates
             //console.log(urls);
             //console.log(titles);
-
-            console.log('clicked');
+            //console.log('clicked');
 
           };
-          res.json(urls);
-          
-          //console.log(JSON.stringify(data));
 
+          //console.log(JSON.stringify(urls));
+          //sort duplicates
+          let uniqueArray = (a) => a.filter((el,i)=> a.indexOf(el) === i);
+        //  console.log(uniqueArray(urls));
+          res.json(uniqueArray(urls));
         });
 
-               //console.log(JSON.stringify(data));
-
-            //   res.json(dataArr);
-
-   //console.log(JSON.stringify(dataArr));
-
-    //res.json(dataArr)
   })
+
 
 //post logs user guess from html form on back end
 app.post('/game', function(req, res){
   var guess = req.body.guess;
   //console.log(guess);
 });
-
 
 }
