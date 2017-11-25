@@ -32,24 +32,16 @@
 
 
 <!-- //ROW 2 : Guess Input, Timer & Points Based Timer -->
-
-    <div class="row">
-      <div class="col-sm 4">
-        <!-- Left Top
+<!-- Left Top
 ROW 2
 left:
 Guess section-->
-<div id="guesses"></div>
-
-
-<div class="container">
-  <div class="guess" id="guess">
+<div class="row1" id="row1">
+  <div class="container">
     <div class="row">
-
+      <div class="col-lg-4 col-md-4">
 <!-- User Guess Form -->
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <p class="panel-title"> Time to Guess! </p>
+          <p class="panel-title"> GUESS! </p>
         </div>
         <div class="panel-body">
 
@@ -135,19 +127,36 @@ Guess section-->
 
 </script>
 </div>
+</div>
+<!-- //END GUESS -->
 
- 
+<!-- //BEGIN TIMER -->
+<div class="col-lg-4 col-md-4">
+  <p> TIMER! </p>
+</div>
+<div class="col-lg-4 col-md-4">
+  <button class="userid" id="userid"><img class="userid" src="" onclick="play()"></button>
+  <audio id="audio" src="./public/audio/five.mov" ></audio>
 
+<script>
+  function play(){
+       var audio = document.getElementById("audio");
+       audio.play();
+  }
+</script>
+</div>
+</div>
+</div>
+</div>
 
-      </div>
-      <!--
-ROW 3
+    
+<!-- ROW 3
 Center
 Audio VIsual space
 
 Center:
 Music player/ something function
-game starts-->
+game starts--> -->
 <div id="audioPlay"><button type="button" id="play"class="btn btn-primary submit">Play</button></div>
 
 
@@ -191,7 +200,9 @@ Shows total points accumulated
 <!--  //Footer : Route Home -->
 <div id="gameFooter" class="gameFooter">
   <div class="div1">
+  <button type="button" class="btn btn-secondary">
   <a href="index.html"><font color="white"> Home </font></a>
+  </button>
   </div>
 </div>
 

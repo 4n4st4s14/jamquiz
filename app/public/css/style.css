@@ -44,14 +44,20 @@ h3 {
   font-weight: bold;
 }
 
-button {
+.header button,
+.footer button {
   font-family: 'Shadows Into Light', cursive;
   font-weight: bold;
-  color: #9368b7;
+  background-color: #9368b7 !important;
   font-size: 25px;
   margin-bottom: 20px;
-  padding: 5px;
+  padding: 10px;
 
+}
+
+.music {
+  height: 100px
+  width: 100px;
 }
 
 /*//MEET THE TEAM : CORY*/
@@ -148,7 +154,7 @@ h5 {
   font-size: 100px !important;
   font-weight: bold !important;
   background-color: #9368B7;
-  padding: 15px;
+  border-radius: 15px;
   margin-bottom: 20px;
   width: 400px;
 }
@@ -166,14 +172,14 @@ p {
   text-align: center;
 }
 
-.gameFooter {
+.gameFooter button {
   font-family: 'Shadows Into Light', cursive;
   text-align: center;
-  font-size: 30px !important;
+  font-size: 20px !important;
   font-weight: bold !important;
   background-color: #9368B7;
-  padding: 5px;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
   width: 65px;
 
 }
