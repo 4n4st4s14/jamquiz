@@ -58,24 +58,16 @@ $.post("http://localhost:8080/spotify", function(data){
     'volume':0.4,
     'autoplay':'autoplay'
 }).appendTo("body");
-    //alert('success');
-    var thissong = $('audio');
-         if (thissong.paused)
-             thissong.get(0).play();
-         else
-             thissong.get(0).pause();
 
 });
 
 
 });
 //next button
-
-
-
+var counter = 1;
 
 $.post("http://localhost:8080/spotify", function(data){
-var counter=0;
+
 
 function makeAudio(){
   console.log(data);
@@ -86,7 +78,12 @@ function makeAudio(){
   'autoplay':'autoplay'
 }).appendTo("body");
 
-counter++;
+//counter++;
+if(counter > 10){
+  counter = 1;
+} else {
+  counter++
+}
 }
 
 
@@ -96,57 +93,28 @@ console.log('clicked');
 
 makeAudio();
 
-var thissong = $('audio');
-         if (thissong.paused)
-             thissong.get(0).play();
-         else
-             thissong.get(0).pause();
 });
 
 });
 
 
-//start orig
- // $("#next").on("click", function(e){
- // e.preventDefault();
- // console.log('clicked');
- //
- // makeAudio();
-//post to apiroutes to run spotify stuff
-// $.post("http://localhost:8080/spotify", function(data){
-//
-// for(var i=1; i< data.length; i++)
-//
-// {
-//     console.log(data);
-//     var song = data[i];
-//     $("<audio></audio>").attr({
-//     'src': song +'.mp3',
-//     'volume':0.4,
-//     'autoplay':'autoplay'
-// }).appendTo("body");
-//     //alert('success');
-//     var thissong = $('audio');
-//          if (thissong.paused)
-//              thissong.get(0).play();
-//          else
-//              thissong.get(0).pause();
-//
-// }
-// });
+//pause button
+$("#pause").on("click", function(e){
+e.preventDefault();
+console.log('clicked');
 
-
-
-//});
-//end orig
-//playpause function
-// function playPause(){
-//   // This next line will get the audio element
-//         // that is adjacent to the link that was clicked.
-//         var song = $(this).next('audio').get(0);
-//         if (song.paused){
-//           song.play();
-//         }else{
-//           song.pause();
-//         }
-// };
+ var thissong = $('audio');
+ thissong.get(0).pause();
+ thissong.get(1).pause();
+ thissong.get(2).pause();
+ thissong.get(3).pause();
+ thissong.get(4).pause();
+ thissong.get(5).pause();
+ thissong.get(6).pause();
+ thissong.get(7).pause();
+ thissong.get(8).pause();
+ thissong.get(9).pause();
+ thissong.get(10).pause();
+ thissong.get(11).pause();
+ thissong.get(12).pause();
+});
