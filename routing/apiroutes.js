@@ -88,15 +88,11 @@ module.exports = function(app) {
               urls.push(data[i].url);
             console.log(urls);
 
-            //this file doesn't understand jQuery. working on it.
-            var audio = $("<audio autoplay>");
-            audio.attr("src", data[0].url+".mp3");
-            $("#audioPlay").append(audio);
-
             console.log('clicked');
 
           };
-        //  console.log(JSON.stringify(data));
+          res.json(urls);
+          console.log(JSON.stringify(data));
 
         });
 

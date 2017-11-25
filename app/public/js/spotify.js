@@ -7,20 +7,23 @@ console.log("linked!");
 
 //create audio
 
-$("#play").on("click", function(){
-
+$("#play").on("click", function(e){
+e.preventDefault();
+console.log('clicked');
 //post to apiroutes to run spotify stuff
 $.post("http://localhost:8080/spotify", function(data){
-  if(data==='done'){
-    alert('success');
-  }
+
+    console.log(data);
+    var song = data[0];
+    $("<audio></audio>").attr({
+    'src': song +'.mp3',
+    'volume':0.4,
+    'autoplay':'autoplay'
+}).appendTo("body");
+    //alert('success');
+
 });
-//dynamically play audio onclick
-// var audio = $("<audio autoplay>");
-// audio.attr("src", "https://p.scdn.co/mp3-preview/87c7273f526b20ef61b13a64b453f5dd5f362ac7?cid=8c539bcca28c4bc5b89dcccdd09be68d.mp3");
-// $("#audioPlay").append(audio);
-// //console.log(guess);
-// console.log('clicked');
+
 
 });
 
