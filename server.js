@@ -16,7 +16,7 @@
  var path = require('path');
 
  var spotify = require("node-spotify-api");
-
+var cheerio = require('cheerio');
 
 
  // var request = require('request'); // "Request" library
