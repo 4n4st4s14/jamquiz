@@ -32,6 +32,7 @@ module.exports = function(app) {
     var artist;
     //var dataArr = [];
     var urls = [];
+    var titles = [];
     //callback function, in order to make the data array accessible outside the //loop,
     //for loop getting info & audio of our songs from spotify
 
@@ -79,20 +80,23 @@ module.exports = function(app) {
 
           getAllData(songs,function(data){
             console.log('data');
-            //console.log(data);
+            console.log(data);
             //console.log(data.length)
 
-            for(var i=0; i< data.length; i++){
+            for(var i=0; i< songs.length; i++){
                   //console.log(data[i].url);
 
               urls.push(data[i].url);
-            console.log(urls);
+              titles.push(data[i].title);
+            //console.log(urls);
+            //console.log(titles);
 
             console.log('clicked');
 
           };
           res.json(urls);
-          console.log(JSON.stringify(data));
+          
+          //console.log(JSON.stringify(data));
 
         });
 
@@ -108,7 +112,7 @@ module.exports = function(app) {
 //post logs user guess from html form on back end
 app.post('/game', function(req, res){
   var guess = req.body.guess;
-  console.log(guess);
+  //console.log(guess);
 });
 
 

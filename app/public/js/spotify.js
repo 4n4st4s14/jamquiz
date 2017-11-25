@@ -31,7 +31,17 @@ console.log("linked!");
     //clear form
     $("#song-guess").val("");
 
+    matchFunc(guess);
+
 });
+
+
+//match callback function
+function matchFunc(val){
+
+  var currentGuess = val;
+  console.log(val);
+}
 
 //create audio
 
@@ -49,13 +59,94 @@ $.post("http://localhost:8080/spotify", function(data){
     'autoplay':'autoplay'
 }).appendTo("body");
     //alert('success');
+    var thissong = $('audio');
+         if (thissong.paused)
+             thissong.get(0).play();
+         else
+             thissong.get(0).pause();
 
 });
 
 
 });
+//next button
 
 
 
 
-    //}// end of spotify function
+$.post("http://localhost:8080/spotify", function(data){
+var counter=0;
+
+function makeAudio(){
+  console.log(data);
+  var song = data[counter];
+  $("<audio></audio>").attr({
+  'src': song +'.mp3',
+  'volume':0.4,
+  'autoplay':'autoplay'
+}).appendTo("body");
+
+counter++;
+}
+
+
+$("#next").on("click", function(e){
+e.preventDefault();
+console.log('clicked');
+
+makeAudio();
+
+var thissong = $('audio');
+         if (thissong.paused)
+             thissong.get(0).play();
+         else
+             thissong.get(0).pause();
+});
+
+});
+
+
+//start orig
+ // $("#next").on("click", function(e){
+ // e.preventDefault();
+ // console.log('clicked');
+ //
+ // makeAudio();
+//post to apiroutes to run spotify stuff
+// $.post("http://localhost:8080/spotify", function(data){
+//
+// for(var i=1; i< data.length; i++)
+//
+// {
+//     console.log(data);
+//     var song = data[i];
+//     $("<audio></audio>").attr({
+//     'src': song +'.mp3',
+//     'volume':0.4,
+//     'autoplay':'autoplay'
+// }).appendTo("body");
+//     //alert('success');
+//     var thissong = $('audio');
+//          if (thissong.paused)
+//              thissong.get(0).play();
+//          else
+//              thissong.get(0).pause();
+//
+// }
+// });
+
+
+
+//});
+//end orig
+//playpause function
+// function playPause(){
+//   // This next line will get the audio element
+//         // that is adjacent to the link that was clicked.
+//         var song = $(this).next('audio').get(0);
+//         if (song.paused){
+//           song.play();
+//         }else{
+//           song.pause();
+//         }
+// };
