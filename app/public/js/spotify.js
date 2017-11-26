@@ -75,6 +75,14 @@ $.post("http://localhost:8080/spotify", function(data){
 
 $("#answer").append(data.title);
 });
+<<<<<<< HEAD
+//dynamically play audio onclick
+// var audio = $("<audio autoplay>");
+// audio.attr("src", "https://p.scdn.co/mp3-preview/87c7273f526b20ef61b13a64b453f5dd5f362ac7?cid=8c539bcca28c4bc5b89dcccdd09be68d.mp3");
+// $("#audioPlay").append(audio);
+// //console.log(guess);
+// console.log('clicked');
+=======
 
 
 });
@@ -111,8 +119,14 @@ if(counter > 10){
 $("#next").on("click", function(e){
 e.preventDefault();
 console.log('clicked');
+<<<<<<< HEAD
 $("<audio></audio>").remove();
 makeAudio(data);
+=======
+>>>>>>> ea60158fe73b571e683dde025acecae4c540ec67
+
+makeAudio();
+>>>>>>> fcfcaaa76505896893ebbc5f9dbb7d4b1845c8f7
 
 });
 

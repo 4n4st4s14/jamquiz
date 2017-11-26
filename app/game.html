@@ -30,6 +30,15 @@
  <h5> JAM!QUIZ! </h5>
 </center>
 
+
+<!-- //ROW 2 : Guess Input, Timer & Points Based Timer -->
+<!-- Left Top
+ROW 2
+left:
+Guess section-->
+<div class="row1" id="row1">
+  <div class="container">
+
 <!-- //ROW 2 : Guess Input, Timer & Points Based Timer -->
 
     <div class="row">
@@ -44,11 +53,9 @@ Guess section-->
 <div class="container">
   <div class="guess" id="guess">
     <div class="row">
-
+      <div class="col-lg-4 col-md-4">
 <!-- User Guess Form -->
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <p class="panel-title"> Time to Guess! </p>
+          <p class="panel-title"> GUESS! </p>
         </div>
         <div class="panel-body">
 
@@ -73,55 +80,71 @@ Guess section-->
 
 
 
-  // {
-  // userSongGuess: $("#song-guess").val().trim()
-  // };
-  //
-  // console.log(guess.userSongGuess);
-//});
-  // Loop to create and display previous user guesses
-  // in dynamically made Divs
- //
-   //for (var i = 0; i < 2; i++) {
- //
- //    // Create the HTML Well (Section) and Add the table content for each reserved table
- //    var oldGuessSpot = $("<div>");
- //    oldGuessSpot.addClass("well");
- //    tableSection.attr("id", "tableWell-" + i + 1);
- //    $("#guesses").append(guess.userSongGuess);
- //
- //    var tableNumber = i + 1;
- //
- //
- //    // Then display the remaining fields in the HTML (Section Name, Date, URL)
- //    $("#tableWell-" + i + 1).append("<h2><span class='label label-primary'>" + tableNumber + "</span> | " + tableData[i].customerID + "</h2>");
- //  }
- //
- //  //clears the form after submit
- //  $("#song-guess").val("");
- //
- //  });
- //
- // $.post("/api/game"), guess,
- // function(data)
- //
- //
- //
-  // $.ajax({url: "/game", success:function(guess){
-  //   console.log(guess);
-  // }})
+  {
+  userSongGuess: $("#song-guess").val().trim()
+  };
+
+  console.log(guess.userSongGuess);
+});
+  Loop to create and display previous user guesses
+  in dynamically made Divs
+
+   for (var i = 0; i < 2; i++) {
+
+    // Create the HTML Well (Section) and Add the table content for each reserved table
+    var oldGuessSpot = $("<div>");
+    oldGuessSpot.addClass("well");
+    tableSection.attr("id", "tableWell-" + i + 1);
+    $("#guesses").append(guess.userSongGuess);
+
+    var tableNumber = i + 1;
+
+
+    // Then display the remaining fields in the HTML (Section Name, Date, URL)
+    $("#tableWell-" + i + 1).append("<h2><span class='label label-primary'>" + tableNumber + "</span> | " + tableData[i].customerID + "</h2>");
+  }
+
+  //clears the form after submit
+  $("#song-guess").val("");
+
+  });
+
+ $.post("/api/game"), guess,
+ function(data)
+
+
+
+  $.ajax({url: "/game", success:function(guess){
+    console.log(guess);
+  }})
 
 </script>
+</div>
+</div>
+<!-- //END GUESS -->
+
+<!-- //BEGIN TIMER -->
+<div class="col-lg-4 col-md-4">
+  <p> TIMER! </p>
+</div>
+<div class="col-lg-4 col-md-4">
+  <button class="userid" id="userid"><img class="userid" src="" onclick="play()"></button>
+  <audio id="audio" src="./public/audio/five.mov" ></audio>
+
+<script>
+  function play(){
+       var audio = document.getElementById("audio");
+       audio.play();
+  }
+</script>
+</div>
+</div>
+</div>
 </div>
 
 
 
-
-
-      </div>
-      <div id="audioVis"></div>
-      <!--
-ROW 3
+<!-- ROW 3
 Center
 Audio VIsual space
 
@@ -170,10 +193,13 @@ Shows total points accumulated
 
 
 
+
 <!--  //Footer : Route Home -->
 <div id="gameFooter" class="gameFooter">
   <div class="div1">
+  <button type="button" class="btn btn-secondary">
   <a href="index.html"><font color="white"> Home </font></a>
+  </button>
   </div>
 </div>
 
@@ -185,8 +211,9 @@ Shows total points accumulated
 src="./spotify.js"
 -->
 
+
 <script type="text/javascript" src="/js/spotify.js"></script>
 </body>
-
-
+<script type="text/javascript" src="/js/spotify.js"></script>
+</body>
 </html>

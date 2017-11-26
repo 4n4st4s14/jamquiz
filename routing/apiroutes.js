@@ -87,6 +87,19 @@ module.exports = function(app) {
                   //console.log(data[i].url);
 
               urls.push(data[i].url);
+<<<<<<< HEAD
+            console.log(urls);
+
+            //this file doesn't understand jQuery. working on it.
+            var audio = $("<audio autoplay>");
+            audio.attr("src", data[0].url+".mp3");
+            $("#audioPlay").append(audio);
+
+            console.log('clicked');
+
+          };
+        //  console.log(JSON.stringify(data));
+=======
               titles.push(data[i].title);
 
             //   to sort duplicates
@@ -94,7 +107,12 @@ module.exports = function(app) {
             // console.log(titles);
             // console.log('clicked');
 
+<<<<<<< HEAD
          };
+=======
+          };
+>>>>>>> ea60158fe73b571e683dde025acecae4c540ec67
+>>>>>>> fcfcaaa76505896893ebbc5f9dbb7d4b1845c8f7
 
           //console.log(JSON.stringify(urls));
           //sort duplicates
@@ -134,6 +152,16 @@ module.exports = function(app) {
         //  res.json(data);
         });
 
+<<<<<<< HEAD
+               //console.log(JSON.stringify(data));
+
+            //   res.json(dataArr);
+
+   //console.log(JSON.stringify(dataArr));
+
+    //res.json(dataArr)
+=======
+>>>>>>> ea60158fe73b571e683dde025acecae4c540ec67
   })
 
 
