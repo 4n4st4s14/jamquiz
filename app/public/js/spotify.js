@@ -10,35 +10,54 @@ console.log("linked!");
   //take userGuess form element input
   var guess = $('#song-guess').val().trim();
   //console.log(guess);
-  $.post("http://localhost:8080/game", { guess : guess}, function(data){
+
+//check if matches
+  if(guess == $("#answer").val()){
+    console.log("match!")
+  }
+
+
+  $.post("http://localhost:8080/game", { guess : guess }, function(data){
     if(data==='done'){
       alert('success');
     }
   });
 
 
-  //    // Create the HTML Well (Section) and Add the table content for each reserved table
+     // Create the HTML div and add the guess
       var oldGuessSpot = $("<div>");
       oldGuessSpot.text(guess);
-      //tableSection.attr("id", "tableWell-" + i + 1);
+
      $("#guesses").append(oldGuessSpot);
 
     //clear form
     $("#song-guess").val("");
-
+//callback to compare to song data
     matchFunc(guess);
 
 });
 
 
 //match callback function
+//I want to compare the guess from the user with the song title from spotify
+
 function matchFunc(val){
 
+    $.post("http://localhost:8080/spotify", function(data){
+
+      //logs successfully here
+      //console.log(data)
+    });
+
+//logs as undefined
+//console.log(data);
+//gets val from onclick function
   var currentGuess = val;
   console.log(val);
-}
 
-//create audio
+};
+
+//create audio when user clicks play button
 
 $("#play").on("click", function(e){
 e.preventDefault();
@@ -46,33 +65,41 @@ console.log('clicked');
 //post to apiroutes to run spotify stuff
 $.post("http://localhost:8080/spotify", function(data){
 
-    console.log(data);
-    var song = data[0];
+    //console.log(data);
+    //var song = data[0];
     $("<audio></audio>").attr({
-    'src': song +'.mp3',
+    'src': data.url +'.mp3',
     'volume':0.4,
     'autoplay':'autoplay'
 }).appendTo("body");
 
+$("#answer").append(data.title);
 });
 
 
 });
+
 //next button
 var counter = 0;
 
 $.post("http://localhost:8080/spotify", function(data){
- counter= 0;
+  //console.log(data);
 
-function makeAudio(){
-  console.log(data);
-  var song = data[counter];
+
+ counter = 0;
+//function to increment url index location without duplicates
+function makeAudio(data){
+    //res.json(uniqueArray(urls));
+//console.log(data.url);
+//  var song = data[counter];
+  //console.log(song.url);
   $("<audio></audio>").attr({
-  'src': song +'.mp3',
+  'src': data.url +'.mp3',
   'volume':0.4,
   'autoplay':'autoplay'
 }).appendTo("body");
 
+$("#answer").append(data.title);
 //counter++;
 if(counter > 10){
   counter = 0;
@@ -81,19 +108,18 @@ if(counter > 10){
 }
 }
 
-
 $("#next").on("click", function(e){
 e.preventDefault();
 console.log('clicked');
-
-makeAudio();
-
-});
+$("<audio></audio>").remove();
+makeAudio(data);
 
 });
 
+});
 
-//pause button
+
+//pause button- messy temporary solution
 $("#pause").on("click", function(e){
 e.preventDefault();
 console.log('clicked');

@@ -2,7 +2,7 @@
 var Spotify = require("node-spotify-api");
 var request = require("request");
 var bodyParser = require('body-parser');
-var cheerio = require('cheerio');
+//var cheerio = require('cheerio');
 //console.log(userGuess.guess.userSongGuess);
 
 module.exports = function(app) {
@@ -79,9 +79,9 @@ module.exports = function(app) {
           }
 
           getAllData(songs,function(data){
-          //  console.log('data');
-            //console.log(data);
-            //console.log(data.length)
+           console.log('data');
+            console.log(data);
+          //   console.log(data.length)
 
             for(var i=0; i< songs.length; i++){
                   //console.log(data[i].url);
@@ -89,18 +89,49 @@ module.exports = function(app) {
               urls.push(data[i].url);
               titles.push(data[i].title);
 
-              //to sort duplicates
-            //console.log(urls);
-            //console.log(titles);
-            //console.log('clicked');
+            //   to sort duplicates
+            // console.log(urls);
+            // console.log(titles);
+            // console.log('clicked');
 
-          };
+         };
 
           //console.log(JSON.stringify(urls));
           //sort duplicates
           let uniqueArray = (a) => a.filter((el,i)=> a.indexOf(el) === i);
-        //  console.log(uniqueArray(urls));
-          res.json(uniqueArray(urls));
+         //console.log(uniqueArray(urls));
+        // console.log(data);
+//re-include 105, 120, close
+         data.forEach(function(song){
+           //console.log('song', song.url);
+           //console.log(uniqueArray(urls)[0]);
+
+           //if(song.url == uniqueArray(urls[0]))
+
+           
+           //experiment
+//  var songs=[];
+// //
+// for(var i=0; i<song.length; i++){
+//   if(uniqueArray(urls)[i] == song.url[i])
+//   songs.push(song);
+//
+//
+//   res.json(songs);
+//}
+//experiment
+
+           //////works
+           if(uniqueArray(urls)[0] == song.url){
+             console.log("HELLOOOO");
+             console.log(song);
+             res.json(song);
+           }
+        //   //  ///////works
+          });
+          //res.json(uniqueArray(urls));
+
+        //  res.json(data);
         });
 
   })
