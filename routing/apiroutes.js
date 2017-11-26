@@ -95,7 +95,7 @@ module.exports = function(app) {
             // console.log(titles);
             // console.log('clicked');
 
-
+          //  res.json(data);
          };
 
           //};
@@ -107,7 +107,7 @@ module.exports = function(app) {
          //console.log(uniqueArray(urls));
         // console.log(data);
 //re-include 105, 120, close
-         data.forEach(function(song){
+          data.forEach(function(song){
            //console.log('song', song.url);
            //console.log(uniqueArray(urls)[0]);
 
@@ -127,6 +127,7 @@ module.exports = function(app) {
 //experiment
 
            //////works
+          //  //
            if(uniqueArray(urls)[0] == song.url){
              console.log("HELLOOOO");
              console.log(song);

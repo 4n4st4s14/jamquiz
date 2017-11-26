@@ -10,9 +10,9 @@ console.log("linked!");
   //take userGuess form element input
   var guess = $('#song-guess').val().trim();
   //console.log(guess);
-
+console.log($('#answer').text());
 //check if matches
-  if(guess == $("#answer").val()){
+  if(guess == $("#answer").text() && guess !== ""){
     console.log("match!")
   }
 
@@ -53,7 +53,7 @@ function matchFunc(val){
 //console.log(data);
 //gets val from onclick function
   var currentGuess = val;
-  console.log(val);
+  //console.log(val);
 
 };
 
