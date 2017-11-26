@@ -79,44 +79,44 @@ Guess section-->
 //end guess button
 
 
-
-  {
-  userSongGuess: $("#song-guess").val().trim()
-  };
-
-  console.log(guess.userSongGuess);
-});
-  Loop to create and display previous user guesses
-  in dynamically made Divs
-
-   for (var i = 0; i < 2; i++) {
-
-    // Create the HTML Well (Section) and Add the table content for each reserved table
-    var oldGuessSpot = $("<div>");
-    oldGuessSpot.addClass("well");
-    tableSection.attr("id", "tableWell-" + i + 1);
-    $("#guesses").append(guess.userSongGuess);
-
-    var tableNumber = i + 1;
-
-
-    // Then display the remaining fields in the HTML (Section Name, Date, URL)
-    $("#tableWell-" + i + 1).append("<h2><span class='label label-primary'>" + tableNumber + "</span> | " + tableData[i].customerID + "</h2>");
-  }
-
-  //clears the form after submit
-  $("#song-guess").val("");
-
-  });
-
- $.post("/api/game"), guess,
- function(data)
-
-
-
-  $.ajax({url: "/game", success:function(guess){
-    console.log(guess);
-  }})
+//
+//   {
+//   userSongGuess: $("#song-guess").val().trim()
+//   };
+//
+//   console.log(guess.userSongGuess);
+// });
+//   Loop to create and display previous user guesses
+//   in dynamically made Divs
+//
+//    for (var i = 0; i < 2; i++) {
+//
+//     // Create the HTML Well (Section) and Add the table content for each reserved table
+//     var oldGuessSpot = $("<div>");
+//     oldGuessSpot.addClass("well");
+//     tableSection.attr("id", "tableWell-" + i + 1);
+//     $("#guesses").append(guess.userSongGuess);
+//
+//     var tableNumber = i + 1;
+//
+//
+//     // Then display the remaining fields in the HTML (Section Name, Date, URL)
+//     $("#tableWell-" + i + 1).append("<h2><span class='label label-primary'>" + tableNumber + "</span> | " + tableData[i].customerID + "</h2>");
+//   }
+//
+//   //clears the form after submit
+//   $("#song-guess").val("");
+//
+//   });
+//
+//  $.post("/api/game"), guess,
+//  function(data)
+//
+//
+//
+//   $.ajax({url: "/game", success:function(guess){
+//     console.log(guess);
+//   }})
 
 </script>
 </div>
@@ -132,10 +132,10 @@ Guess section-->
   <audio id="audio" src="./public/audio/five.mov" ></audio>
 
 <script>
-  function play(){
-       var audio = document.getElementById("audio");
-       audio.play();
-  }
+  // function play(){
+  //      var audio = document.getElementById("audio");
+  //      audio.play();
+  // }
 </script>
 </div>
 </div>
@@ -214,6 +214,6 @@ src="./spotify.js"
 
 <script type="text/javascript" src="/js/spotify.js"></script>
 </body>
-<script type="text/javascript" src="/js/spotify.js"></script>
+
 </body>
 </html>
