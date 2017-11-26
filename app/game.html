@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" type="text/css" href="./public/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css"> 
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
   <!--jquery-->
@@ -38,6 +38,20 @@ left:
 Guess section-->
 <div class="row1" id="row1">
   <div class="container">
+
+<!-- //ROW 2 : Guess Input, Timer & Points Based Timer -->
+
+    <div class="row">
+      <div class="col-sm 4">
+        <!-- Left Top
+ROW 2
+left:
+Guess section-->
+<div id="guesses"></div>
+
+
+<div class="container">
+  <div class="guess" id="guess">
     <div class="row">
       <div class="col-lg-4 col-md-4">
 <!-- User Guess Form -->
@@ -61,28 +75,7 @@ Guess section-->
 // Code for front-end JavaScript to "post" user entry for the song guess from our form and send it to the express server.
 //When user submits info, jQuery will grab the song input field and send a post request to our API.
 //gues button logic
-  $(".submit").on("click", function(event)
-  {
-  event.preventDefault();
 
-  //take userGuess form element input
-  var guess = $('#song-guess').val().trim();
-  //console.log(guess);
-  $.post("http://localhost:8080/game", { guess : guess}, function(data){
-    if(data==='done'){
-      alert('success');
-    }
-  });
-
-
-  //    // Create the HTML Well (Section) and Add the table content for each reserved table
-      var oldGuessSpot = $("<div>");
-      oldGuessSpot.text(guess);
-      //tableSection.attr("id", "tableWell-" + i + 1);
-     $("#guesses").append(oldGuessSpot);
-
-
-});
 //end guess button
 
 
@@ -149,6 +142,7 @@ Guess section-->
 </div>
 </div>
 
+
     
 <!-- ROW 3
 Center
@@ -158,7 +152,8 @@ Center:
 Music player/ something function
 game starts--> -->
 <div id="audioPlay"><button type="button" id="play"class="btn btn-primary submit">Play</button></div>
-
+<div id="audioPlay"><button type="button" id="next"class="btn btn-primary submit">Next</button></div>
+<div id="audioPlay"><button type="button" id="pause"class="btn btn-primary submit">Pause</button></div>
 
       <div class="col-sm-4">
 
@@ -196,7 +191,8 @@ Shows total points accumulated
     </div>
 
 
-  
+
+
 <!--  //Footer : Route Home -->
 <div id="gameFooter" class="gameFooter">
   <div class="div1">
@@ -216,6 +212,7 @@ src="./spotify.js"
 
 
 <script type="text/javascript" src="/js/spotify.js"></script>
-
+</body>
+<script type="text/javascript" src="/js/spotify.js"></script>
 </body>
 </html>

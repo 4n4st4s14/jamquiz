@@ -32,6 +32,8 @@ module.exports = function(app) {
     var artist;
     //var dataArr = [];
     var urls = [];
+    var uniqueUrls = [];
+    var titles = [];
     //callback function, in order to make the data array accessible outside the //loop,
     //for loop getting info & audio of our songs from spotify
 
@@ -67,25 +69,25 @@ module.exports = function(app) {
               });
               // console.log("data array:  " + dataArr);
              //console.log(JSON.stringify(dataArr));
-
+             //callback to parse dataArr
              cb(dataArr);
 
             });
 
             }
 
-
           }
 
           getAllData(songs,function(data){
-            console.log('data');
+          //  console.log('data');
             //console.log(data);
             //console.log(data.length)
 
-            for(var i=0; i< data.length; i++){
+            for(var i=0; i< songs.length; i++){
                   //console.log(data[i].url);
 
               urls.push(data[i].url);
+<<<<<<< HEAD
             console.log(urls);
 
             //this file doesn't understand jQuery. working on it.
@@ -97,9 +99,25 @@ module.exports = function(app) {
 
           };
         //  console.log(JSON.stringify(data));
+=======
+              titles.push(data[i].title);
 
+              //to sort duplicates
+            //console.log(urls);
+            //console.log(titles);
+            //console.log('clicked');
+
+          };
+>>>>>>> ea60158fe73b571e683dde025acecae4c540ec67
+
+          //console.log(JSON.stringify(urls));
+          //sort duplicates
+          let uniqueArray = (a) => a.filter((el,i)=> a.indexOf(el) === i);
+        //  console.log(uniqueArray(urls));
+          res.json(uniqueArray(urls));
         });
 
+<<<<<<< HEAD
                //console.log(JSON.stringify(data));
 
             //   res.json(dataArr);
@@ -107,13 +125,15 @@ module.exports = function(app) {
    //console.log(JSON.stringify(dataArr));
 
     //res.json(dataArr)
+=======
+>>>>>>> ea60158fe73b571e683dde025acecae4c540ec67
   })
+
 
 //post logs user guess from html form on back end
 app.post('/game', function(req, res){
   var guess = req.body.guess;
-  console.log(guess);
+  //console.log(guess);
 });
-
 
 }
