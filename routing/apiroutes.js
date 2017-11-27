@@ -24,7 +24,7 @@ module.exports = function(app) {
         };
         //spotify function
     //our songs :)
-    var songs = ['the fresh prince of bel-air', 'carry the zero', 'toxic', 'bodak yellow'];
+    var songs = ['the fresh prince of bel-air', 'carry the zero', 'toxic', 'bodak yellow', 'flu shot'];
 
     var info;
     var previewUrl;
@@ -79,8 +79,9 @@ module.exports = function(app) {
           }
 
           getAllData(songs,function(data){
-           console.log('data');
-            console.log(data);
+          //  console.log('data');
+            // console.log(data);
+            // res.json(data)
           //   console.log(data.length)
 
             for(var i=0; i< songs.length; i++){
@@ -95,62 +96,48 @@ module.exports = function(app) {
             // console.log(titles);
             // console.log('clicked');
 
-          //  res.json(data);
+          //  res.json(data);/
          };
+         res.json(data);
 
           //};
-
-
-          //console.log(JSON.stringify(urls));
-          //sort duplicates
-          let uniqueArray = (a) => a.filter((el,i)=> a.indexOf(el) === i);
-         //console.log(uniqueArray(urls));
-        // console.log(data);
-//re-include 105, 120, close
-          data.forEach(function(song){
-           //console.log('song', song.url);
-           //console.log(uniqueArray(urls)[0]);
-
-           //if(song.url == uniqueArray(urls[0]))
-
-
-           //experiment
-//  var songs=[];
-// //
-// for(var i=0; i<song.length; i++){
-//   if(uniqueArray(urls)[i] == song.url[i])
-//   songs.push(song);
-//
-//
-//   res.json(songs);
-//}
-//experiment
-
-           //////works
-          //  //
-           if(uniqueArray(urls)[0] == song.url){
-             console.log("HELLOOOO");
-             console.log(song);
-             res.json(song);
-           }
-        //   //  ///////works
-          });
-          //res.json(uniqueArray(urls));
-
-        //  res.json(data);
-        });
-
-
-               //console.log(JSON.stringify(data));
-
-            //   res.json(dataArr);
-
-   //console.log(JSON.stringify(dataArr));
-
-    //res.json(dataArr)
+   //
+   //
+  //         //console.log(JSON.stringify(urls));
+  //         //sort duplicates
+  //         let uniqueArray = (a) => a.filter((el,i)=> a.indexOf(el) === i);
+  //        //console.log(uniqueArray(urls));
+  //       // console.log(data);
+   //
+  //         data.forEach(function(song){
+  //          //console.log('song', song.url);
+  //          //console.log(uniqueArray(urls)[0]);
+   //
+  //          //////works
+   //
+  //          if(uniqueArray(urls)[0] == song.url){
+  //            console.log("HELLOOOO");
+  //            console.log(song);
+  //            res.json(song);
+  //          }
+  //       //   //  ///////works
+  //         });
+  //         //res.json(uniqueArray(urls));
+   //
+  //       //  res.json(data);
+  //       });
+   //
+   //
+  //              //console.log(JSON.stringify(data));
+   //
+  //           //   res.json(dataArr);
+   //
+  //  //console.log(JSON.stringify(dataArr));
+   //
+  //   //res.json(dataArr)
 
   })
-
+})
 
 //post logs user guess from html form on back end
 app.post('/game', function(req, res){
