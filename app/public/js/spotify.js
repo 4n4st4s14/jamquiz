@@ -172,6 +172,7 @@ $.post("http://localhost:8080/spotify", function(data) {
     time = 30;
     gameTimer = setInterval(function() {countDown()}, 1000);
     makeAudio();
+    
   });
 
 });

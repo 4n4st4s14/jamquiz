@@ -153,7 +153,7 @@ Shows total points accumulated
 -->
 
       <div class="col-sm-4">
-        
+
 
       <div class="gifs" id="gifs-appear-here"></div>
 
@@ -162,27 +162,27 @@ Shows total points accumulated
 
 
 
-      $("button").on("click", function() {
-    
+      $("<button></button>").on("click", function() {
+
       var song = $('#answer').val().trim();
       console.log(song);
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         song + "&api_key=dc6zaTOxFJmzC&limit=5";
-  
+
       $.ajax({
           url: queryURL,
           method: "GET"
         })
-       
+
         .done(function(response) {
-        
+
           var results = response.data;
 
-      
+
           for (var i = 0; i < results.length; i++) {
 
             if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-   
+
               var gifs = $("<div class='item'>");
 
               var rating = results[i].rating;
@@ -203,7 +203,7 @@ Shows total points accumulated
         });
     });
 
-
+</script>
 
 
 
