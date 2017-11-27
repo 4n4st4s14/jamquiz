@@ -24,11 +24,19 @@ console.log($('#answer').text());
   });
 
 
-     // Create the HTML div and add the guess
-      var oldGuessSpot = $("<div>");
-      oldGuessSpot.text(guess);
+     // Use existing guess fields to float down existing guesses
+     // they clear from a different location (currently play button onclick)
+     var guess1 = $("#guess1").text();
+     var guess2 = $("#guess2").text();
 
-     $("#guesses").append(oldGuessSpot);
+
+     $("#guess1").text(guess);
+     $("#guess2").text(guess1);
+     $("#guess3").text(guess2);
+
+    //  var oldGuessSpot = $("<div>");
+    //  oldGuessSpot.text(guess);
+     //$("#guesses").append(oldGuessSpot);
 
     //clear form
     $("#song-guess").val("");
@@ -76,6 +84,10 @@ $.post("http://localhost:8080/spotify", function(data){
 $("#answer").append(data.title);
 });
 
+// to clear the three guessing fields when next song plays
+$("#guess1").empty();
+$("#guess2").empty();
+$("#guess3").empty();
 
 });
 
