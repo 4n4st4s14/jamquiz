@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>JamQuiz.</title>
 
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
   <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -38,7 +38,7 @@ left:
 Guess section-->
 <div class="row1" id="row1">
   <div class="container">
-
+<div id="messageBoard"></div>
 <!-- //ROW 2 : Guess Input, Timer & Points Based Timer -->
 
     <div class="row">
@@ -81,55 +81,7 @@ Guess section-->
   </div>
 
 
-<script type="text/javascript">
 
-// Code for front-end JavaScript to "post" user entry for the song guess from our form and send it to the express server.
-//When user submits info, jQuery will grab the song input field and send a post request to our API.
-//gues button logic
-
-//end guess button
-
-
-//
-//   {
-//   userSongGuess: $("#song-guess").val().trim()
-//   };
-//
-//   console.log(guess.userSongGuess);
-// });
-//   Loop to create and display previous user guesses
-//   in dynamically made Divs
-//
-//    for (var i = 0; i < 2; i++) {
-//
-//     // Create the HTML Well (Section) and Add the table content for each reserved table
-//     var oldGuessSpot = $("<div>");
-//     oldGuessSpot.addClass("well");
-//     tableSection.attr("id", "tableWell-" + i + 1);
-//     $("#guesses").append(guess.userSongGuess);
-//
-//     var tableNumber = i + 1;
-//
-//
-//     // Then display the remaining fields in the HTML (Section Name, Date, URL)
-//     $("#tableWell-" + i + 1).append("<h2><span class='label label-primary'>" + tableNumber + "</span> | " + tableData[i].customerID + "</h2>");
-//   }
-//
-//   //clears the form after submit
-//   $("#song-guess").val("");
-//
-//   });
-//
-//  $.post("/api/game"), guess,
-//  function(data)
-//
-//
-//
-//   $.ajax({url: "/game", success:function(guess){
-//     console.log(guess);
-//   }})
-
-</script>
 </div>
 </div>
 <!-- //END GUESS -->
@@ -137,6 +89,7 @@ Guess section-->
 <!-- //BEGIN TIMER -->
 <div class="col-lg-4 col-md-4">
   <p> TIMER! </p>
+  <div id="timer"></div>
 </div>
 <div class="col-lg-4 col-md-4">
   <button class="userid" id="userid"><img class="userid" src="" onclick="play()"></button>
@@ -162,7 +115,7 @@ Audio VIsual space
 Center:
 Music player/ something function
 game starts-->
-<h3 id="answer"></h3>
+<h3 id="answer" style="display:none;"></h3>
 <div id="audioPlay"><button type="button" id="startGame"class="btn btn-primary submit">Play</button></div>
 <div id="audioPlay"><button type="button" id="next"class="btn btn-primary submit">Next</button></div>
 <div id="audioPlay"><button type="button" id="pause" class="btn btn-primary submit">Pause</button>
@@ -192,7 +145,7 @@ Guess Logo-->
       </div>
 
       <div class="col-sm-4">
-
+<div id="pointsPossible"></div>
       </div>
       <!--Right:
 Point Calculator

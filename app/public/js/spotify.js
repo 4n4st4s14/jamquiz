@@ -3,17 +3,33 @@ console.log("linked!");
 // Code for front-end JavaScript to "post" user entry for the song guess from our form and send it to the express server.
 //When user submits info, jQuery will grab the song input field and send a post request to our API.
 //gues button logic
+
+var wins = 0;
+var losses = 0;
+
 $(".submit").on("click", function(event) {
   event.preventDefault();
 
   //take userGuess form element input
   var guess = $('#song-guess').val().trim();
   //console.log(guess);
-  console.log($('#answer').text());
+  //console.log($('#answer').text());
   //check if matches
-  if (guess == $("#answer").text() && guess !== "") {
-    console.log("match!")
-  }
+
+
+  // if (guess == $("#answer").text() && guess !== "") {
+  //   console.log("match!")
+  //   //if they match, pause the audio
+  //   $(".playingMusic").pause();
+
+
+
+    //need points to increment differently based on timer
+    //the problem is that the check for correct or incorect lives up here in a second function. when someone submits, we need to know how much time has passed from the start.
+
+
+
+//  }
 
 
   $.post("http://localhost:8080/game", {
@@ -50,32 +66,60 @@ $(".submit").on("click", function(event) {
 
 });
 
+//variables for timer
 
-//match callback function
-//I want to compare the guess from the user with the song title from spotify
+var correct = 0;
+var incorrect = 0;
+var gameTimer;
+var solutionTimer;
+var time = 30;
 
-// function matchFunc(val){
-//
-//     $.post("http://localhost:8080/spotify", function(data){
-//
-//       //logs successfully here
-//       //console.log(data)
-//     });
-//
-// //logs as undefined
-// //console.log(data);
-// //gets val from onclick function
-//   var currentGuess = val;
-//   //console.log(val);
-//
-// };
 
+//timer function
+function countDown() {
+
+  time--;
+  $("#timer").text(time);
+  if (time === 0) {
+    $("#messageBoard").text("You lose. The correct answer was " + $("#answer").text());
+    clearInterval(gameTimer);
+    //solutionTimer = setInterval(function() {clearAnswer()}, 4000);
+    incorrect++;
+    // pause and reset the current song
+    //time= 30;
+
+    // document.getElementById("buzzer").play();
+    // document.getElementById("aww").play();
+  }
+  else if
+     ($('#song-guess').val().trim() == $("#answer").text() && $('#song-guess').val().trim() !== "") {
+      console.log("match!", time)
+      var userPoints = time * 10;
+  $("#pointsPossible").text(userPoints);
+      //if they match, pause the audio
+      time = 0;
+      clearInterval(gameTimer);
+      $(".playingMusic")[0].pause();
+
+  }
+
+
+  // else if (time < 11) {
+  //   $("#timer").addClass("lowTime");
+  //   if (time < 6) {
+  //     document.getElementById("tick").play();
+  //   }
+  // }
+}
 //create audio when user clicks play button
 var counter = 0
 
 $("#startGame").on("click", function() {
   $(this).hide()
   console.log('clicked');
+
+  // begin the countdown timer function
+			gameTimer = setInterval(function() {countDown()}, 1000);
   //post to apiroutes to run spotify stuff
   $.post("http://localhost:8080/spotify", function(data) {
 
@@ -115,11 +159,18 @@ $.post("http://localhost:8080/spotify", function(data) {
     }).appendTo("body");
 
     $("#answer").append(data[counter].title);
+
+
   }
 
   $("#next").on("click", function() {
     $("#answer").empty()
+    $('#guess1').empty()
+    $('#guess2').empty()
+    $('#guess3').empty()
     $(".playingMusic").remove();
+    time = 30;
+    gameTimer = setInterval(function() {countDown()}, 1000);
     makeAudio();
   });
 
