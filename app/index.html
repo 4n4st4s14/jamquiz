@@ -48,6 +48,40 @@
 
 <!-- //On keypress Photo -->
 
+<div id='mainimg'> placeholder </div>
+
+<audio id="audio1" controls style="display:none">
+  <!-- <source src="./public/audio/1.m4a"> -->
+</audio>
+
+<script>
+  function play1(){
+       var audio = document.getElementById("audio1");
+       audio.play();
+  
+  }    
+
+  function photo1(){
+    var photo = document.getElementById("photo1");
+    photo.photo();
+  }
+
+  var audio1 = ['1.m4a', '2.m4a', '3.m4a', '4.m4a', '5.m4a', '6.m4a', '7.m4a', '8.m4a', '9.m4a', '10.m4a', '11.m4a', '12.m4a', '13.m4a','14.m4a', '15.m4a', '16.m4a', '17.m4a', '18.m4a', '19.m4a']
+
+  var photo1 = ['1.jpg','2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg', '19.jpg', '20.jpg']
+  var counter = 0;
+
+document.onkeyup = function(event) { 
+$('#audio1').attr("src", './public/audio/' + audio1[counter])
+$('#audio1')[0].play()
+$('#mainimg').html("<img src='./public/images/"+photo1[counter]+"'/>")
+counter++
+// $('#audio1').attr("src", './public/audio/' + audio1[counter])
+
+
+  }
+</script>
+
 <!-- // MUSIC GRID END -->
 
 <!-- //BOTTOM/ FOOTER -->

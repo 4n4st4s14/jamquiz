@@ -60,6 +60,15 @@ h3 {
   width: 100px;
 }
 
+.mainimg {
+  text-align: center;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  z-index: 4px;
+}
+
+
 /*//MEET THE TEAM : CORY*/
 
 .meetTheTeam {
