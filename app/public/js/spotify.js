@@ -18,7 +18,7 @@ $(".submit").on("click", function(event) {
   //console.log($('#answer').text());
 
 //posts the guess to the back end
-  $.post("http://localhost:8080/game", {
+  $.post("/game", {
     guess: guess
   }, function(data) {
     if (data === 'done') {
@@ -115,7 +115,7 @@ $("#startGame").on("click", function() {
 
 
   //post to apiroutes to run spotify stuff
-  $.post("http://localhost:8080/spotify", function(data) {
+  $.post("/spotify", function(data) {
 
     //console.log(data);
     //var song = data[0];
@@ -163,7 +163,7 @@ $("#guess3").empty();
 });
 
 //next button
-$.post("http://localhost:8080/spotify", function(data) {
+$.post("/spotify", function(data) {
   console.log("data", data);
 
 //function to make audio at incrementing index locations
