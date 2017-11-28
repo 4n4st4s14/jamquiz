@@ -64,7 +64,7 @@ function countDown() {
 
 
 //if the user's guess is equal to the answer, and is not empty
-  } else if ($('#song-guess').val().trim() == $("#answer").text() && $('#song-guess').val().trim() !== "") {
+  } else if ($('#song-guess').val().trim().toLowerCase() == $("#answer").text().toLowerCase() && $('#song-guess').val().trim() !== "") {
 
       console.log("match!", time)
       //log the time * ten to get points earned
