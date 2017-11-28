@@ -24,7 +24,7 @@ module.exports = function(app) {
         };
         //spotify function
     //our songs :)
-    var songs = ['the fresh prince of bel-air', 'carry the zero', 'bodak yellow', 'Alexander Hamilton', 'Get Lucky', 'Formation', 'Toxic','London Calling', 'Woo', 'Garden', 'Flu Shot', 'March Madness', 'All My Friends', 'Redbone'];
+    var songs = ['the fresh prince of bel-air', 'carry the zero', 'bodak yellow', 'Alexander Hamilton', 'Get Lucky', 'Formation', 'Toxic', 'Woo', 'Garden', 'Flu Shot', 'March Madness', 'All My Friends', 'Redbone'];
 
     var info;
     var previewUrl;
