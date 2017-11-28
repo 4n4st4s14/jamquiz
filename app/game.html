@@ -92,7 +92,7 @@ Guess section-->
   <div id="timer"></div>
 </div>
 <div class="col-lg-4 col-md-4">
-  <button class="userid" id="userid"><img class="userid" src="" onclick="play()"></button>
+  <!-- <button class="userid" id="userid"><img class="userid" src="" onclick="play()"></button> -->
   <audio id="audio" src="./public/audio/five.mov" ></audio>
 
 <script>
@@ -157,15 +157,18 @@ Shows total points accumulated
 
       <div class="gifs" id="gifs-appear-here"></div>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-       <script type="text/javascript">
 
+       <!-- <script type="text/javascript">
 
+$(document).ready(function(){
 
-      $("<button></button>").on("click", function() {
-
-      var song = $('#answer').val().trim();
-      console.log(song);
+  console.log("hello");
+//var song = $('#answer').text();
+//console.log("song", song);
+    $("#startGame").on( "click", function() {
+      console.log("HELLOOOOOOO")
+      var song = $('#answer').text();
+       console.log("song", song);
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         song + "&api_key=dc6zaTOxFJmzC&limit=5";
 
@@ -203,14 +206,24 @@ Shows total points accumulated
         });
     });
 
-</script>
+  });
+
+</script> -->
 
 
 
       </div>
     </div>
 
+    <div class="jumbotron">
 
+            <h1>
+
+              🎹Hints!
+
+            </h1>
+
+          </div>
 
 
 
