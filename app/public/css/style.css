@@ -174,8 +174,10 @@ h4 {
 
 /*//GAME PAGE : CORY*/
 
+
+
 .game {
-    background:url('../images/three.jpg') no-repeat center center fixed;
+    background:url('../images/three-edit.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -233,17 +235,17 @@ h6 {
 
 }
 
-/*.guess {
-  height: 400px !important;
-  width: 400px !important;
-  background-color:#84c7d0;
-  border-radius:10px;
-  
-}*/
 
-/*.timer {
+#pointsPossible
+{
+font-size: 50px;
+};
 
-}*/
+#timer
+{
+font-size: 40px;
+};
+
 
 /*//ANI*/
 

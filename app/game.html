@@ -39,7 +39,7 @@
 </center>
 
 
-<!-- //ROW 2 : Guess Input, Timer & Points Based Timer 
+<!-- //ROW 2 : Guess Input, Timer & Points Based Timer
  Left Top
 ROW 2
 left:
@@ -49,33 +49,37 @@ Guess section -->
 <div id="messageBoard"></div>
 <!-- //ROW 2 : Guess Input, Timer & Points Based Timer -->
 
-    <div class="row">
-      <div class="col-sm 4">
-        <!-- Left Top
-ROW 2
-left:
-Guess section-->
-<div id="guesses"></div>
+-->
 
 
 <div class="container">
-  <div class="guess" id="guess">
-    <div class="row">
+
+  <!-- row one guess log, play button, timer -->
+  <div class="row" id="row1">
+
+    <!-- COLUMN ONE of ROW ONE (GUESSES)-->
       <div class="col-lg-4 col-md-4">
-<!-- User Guess Form -->
-          <p class="panel-title"> GUESS! </p>
-        <div class="panel-body">
+        <div class="guess" id="guess">
 
-          <form method="POST" role="form">
+        <!-- User Guess Form -->
+                <p class="panel-title"> GUESS! </p>
 
-            <div class="form-group">
-            <!--  <label for="reserve-name"></label> -->
-              <input type="text" class="form-control" id="song-guess"
-              placeholder="Enter Song Title">
-            </div>
+                <div class="panel-body">
 
-            <button type="submit" class="btn btn-secondary submit">Submit</button>
-          </form>
+                  <form method="POST" role="form">
+
+                    <div class="form-group">
+                    <!--  <label for="reserve-name"></label> -->
+                      <input type="text" class="form-control" id="song-guess"
+                      placeholder="Enter Song Title">
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary submit">Submit</button>
+                  </form>
+                </div>
+
+          <!-- messaga about your guess -->
+          <div id="messageBoard"></div>
           <br>
 
 
@@ -89,27 +93,99 @@ Guess section-->
           </div>
           </div>
 
+        </div> <!-- end guess form entry -->
+
+      </div> <!-- end column one of row 1 -->
+
+      <div class="col-lg-4"> <!-- COLUMN 2 OF ROW 1 (PLAY BUTTONS)  -->
+
+        <!-- Music player/ something function
+        game starts -->
+        <h3 id="answer" style="display:none;"></h3>
+        <div id="audioPlay"><button type="button" id="startGame"class="btn btn-primary submit">Play</button></div>
+        <div id="audioPlay"><button type="button" id="next"class="btn btn-primary submit">Next</button></div>
+        <div id="audioPlay"><button type="button" id="pause" class="btn btn-primary submit">Pause</button></div>
+        <div id="audioPlay"><button style="display:none" type="button" id="play"class="btn btn-primary submit">Play</button></div>
 
 
-</div>
-</div>
-<!-- //END GUESS -->
-
-<!-- //BEGIN TIMER -->
-<div class="timer" id="timer">
-<div class="col-lg-4 col-md-4">
-  <p> TIMER! </p>
-  <div id="timer"></div>
-
-</div></div>
-<div class="col-lg-4 col-md-4">
+      </div> <!-- END OF COLUMN 2 -->
 
 
-</div>
-<div class="col-lg-4 col-md-4">
+      <div class="col-lg-4 col-md-4"> <!-- COLUMN 3 OF ROW 1 (TIMER)  -->
 
-  <!-- <button class="userid" id="userid"><img class="userid" src="" onclick="play()"></button> -->
-  <audio id="audio" src="./public/audio/five.mov" ></audio>
+        <!-- TIMER -->
+
+        <!-- //BEGIN TIMER -->
+          <div>
+            <p>TIMER!</p>
+            <div class="timer" id="timer">
+            <div id="timer"></div>
+          </div>
+
+          <div>
+            <!-- <button class="userid" id="userid"><img class="userid" src="" onclick="play()"></button> -->
+          </div>
+
+      </div> <!-- END OF COLUMN 3 -->
+
+    </div> <!-- end row one -->
+
+
+
+
+
+
+
+
+</div> <!-- end of container one -->
+
+
+<!-- start of row 2 -->
+<div class="row" id="row2">
+
+  <!-- COLUMN ONE of ROW TWO (guess log and score display) -->
+    <div class="col-lg-4 col-md-4">
+
+      <div class="guess" id="guess">
+
+        <div id="guess1">
+        </div>
+
+        <div id="guess2">
+        </div>
+
+        <div id="guess3">
+
+        </div>
+      </div>
+    </div> <!-- end column one -->
+
+    <div class="col-lg-4 col-md-4"> <!-- COLUMN TWO OF ROW TWO -->
+    </div>
+
+    <div class="col-lg-4 col-md-4"> <!-- COLUMN THREE OF ROW TWO -->
+
+
+      <h2>Current Score </h2>
+      <div id="pointsPossible"></div>
+
+
+
+    </div>
+
+
+
+
+</div> <!-- end row two -->
+
+
+
+
+
+
+
+
+
 
 <script>
   // function play(){
@@ -117,52 +193,12 @@ Guess section-->
   //      audio.play();
   // }
 </script>
-</div>
-</div>
-</div>
-</div>
 
 
 
-<!-- ROW 3
-Center
-Audio VIsual space
-
-Center:
-Music player/ something function
-game starts-->
-<h3 id="answer" style="display:none;"></h3>
-<div id="audioPlay"><button type="button" id="startGame"class="btn btn-primary submit">Play</button></div>
-<div id="audioPlay"><button type="button" id="next"class="btn btn-primary submit">Next</button></div>
-<div id="audioPlay"><button type="button" id="pause" class="btn btn-primary submit">Pause</button>
-<div id="audioPlay"><button style="display:none" type="button" id="play"class="btn btn-primary submit">Play</button></div>
-
-      <div class="col-sm-4">
-
-      </div>
-      <!--Music timer
-
-Right:
-Points
--->
-      <div class="col-sm-4">
-
-      </div>
-    </div>
-
-    <div class="row">
-      <!--
-ROW 4
-Left:
-Guess Logo-->
-      <div class="col-sm-4">
 
 
-      </div>
 
-      <div class="col-sm-4">
-<div id="pointsPossible"></div>
-      </div>
       <!--Right:
 Point Calculator
 Shows total points accumulated
@@ -172,9 +208,6 @@ Shows total points accumulated
 
 
       <div class="gifs" id="gifs-appear-here"></div>
-
-
-
 
 
 

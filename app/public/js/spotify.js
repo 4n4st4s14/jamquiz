@@ -89,7 +89,7 @@ function countDown() {
         total += parseInt(userPoints);
 
 //PROBLEM: we need this value to add to itself after each round
-  $("#pointsPossible").text(total);
+  $("#pointsPossible").text("Current score: " + total);
       //if they match, pause the audio
       //reset the timer
       //reset time to 0
