@@ -1,3 +1,7 @@
+```
+$("body").prepend('<audio id="winAudio" src = "./public/audio/win.m4a" audio/>');
+$("body").prepend('<audio id="loseAudio" src = "./public/audio/loserChorusClip.mp3" audio/>');
+  ```
 console.log("linked!");
 
 // Code for front-end JavaScript to "post" user entry for the song guess from our form and send it to the express server.
@@ -58,6 +62,10 @@ function countDown() {
   if (time === 0) {
     $("#messageBoard").text("You lose. The correct answer was " + $("#answer").text());
 
+    if (parseInt(counter)=== 0) {
+      $("#winAudio").get(0).play();
+       }
+
     //reset timer
     clearInterval(gameTimer);
     //incorrect++;
@@ -65,6 +73,10 @@ function countDown() {
 
 //if the user's guess is equal to the answer, and is not empty
   } else if ($('#song-guess').val().trim().toLowerCase() == $("#answer").text().toLowerCase() && $('#song-guess').val().trim() !== "") {
+
+    $("#loseAudio").get(0).play();
+  }
+
 
       console.log("match!", time)
       //log the time * ten to get points earned
@@ -81,7 +93,9 @@ function countDown() {
       //time = 31;
       //time = 31;
     //  $('#song-guess').html("");
+
        time = 0;
+
       clearInterval(gameTimer);
       $(".playingMusic")[0].pause();
 
@@ -194,8 +208,10 @@ $.post("http://localhost:8080/spotify", function(data) {
 //next button function
   $("#next").on("click", function() {
 
+
 //clear mloser messageBoard
 $("#messageBoard").empty();
+
 //clear user guesses and current audio
     $("#answer").empty()
     $('#guess1').empty()
