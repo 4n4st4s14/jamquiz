@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>JamQuiz.</title>
 
-  <!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
+  <link rel="stylesheet" type="text/css" href="./public/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -27,7 +27,7 @@
 
 <!-- //ROW 1 : Title -->
 <center>
- <h5> JAM!QUIZ! </h5>
+ <h5 class="animated rubberBand"> JAM!QUIZ! </h5>
 </center>
 
 
@@ -56,7 +56,6 @@ Guess section-->
       <div class="col-lg-4 col-md-4">
 <!-- User Guess Form -->
           <p class="panel-title"> GUESS! </p>
-        </div>
         <div class="panel-body">
 
           <form method="POST" role="form">
@@ -69,16 +68,18 @@ Guess section-->
 
             <button type="submit" class="btn btn-secondary submit">Submit</button>
           </form>
-<div class="guess" id="guess">
+          <br>
+      
 
-  <div id="guess1">
-  </div>
-
-  <div id="guess2">
-  </div>
-
-  <div id="guess3">
-  </div>
+          <div class="guess" id="guess">
+          <h6> Previous Guesses!</h6>
+          <div id="guess1">
+          </div>
+          <div id="guess2">
+          </div>
+          <div id="guess3">
+          </div>
+          </div>
 
 
 
@@ -87,11 +88,13 @@ Guess section-->
 <!-- //END GUESS -->
 
 <!-- //BEGIN TIMER -->
+<div class="timer" id="timer">
 <div class="col-lg-4 col-md-4">
   <p> TIMER! </p>
   <div id="timer"></div>
-</div>
+</div></div>
 <div class="col-lg-4 col-md-4">
+
   <!-- <button class="userid" id="userid"><img class="userid" src="" onclick="play()"></button> -->
   <audio id="audio" src="./public/audio/five.mov" ></audio>
 
@@ -248,3 +251,5 @@ src="./spotify.js"
 
 </body>
 </html>
+
+
