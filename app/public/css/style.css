@@ -148,8 +148,10 @@ b {
 
 /*//GAME PAGE : CORY*/
 
+
+
 .game {
-    background:url('../images/three.jpg') no-repeat center center fixed;
+    background:url('../images/three-edit.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -193,6 +195,16 @@ p {
   width: 65px;
 
 }
+
+#pointsPossible
+{
+font-size: 50px;
+};
+
+#timer
+{
+font-size: 40px;  
+};
 
 /*//ANI*/
 
