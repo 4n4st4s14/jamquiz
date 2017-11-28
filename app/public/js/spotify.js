@@ -81,6 +81,7 @@ function countDown() {
       //time = 31;
       //time = 31;
     //  $('#song-guess').html("");
+       time = 0;
       clearInterval(gameTimer);
       $(".playingMusic")[0].pause();
 
@@ -193,6 +194,8 @@ $.post("http://localhost:8080/spotify", function(data) {
 //next button function
   $("#next").on("click", function() {
 
+//clear mloser messageBoard
+$("#messageBoard").empty();
 //clear user guesses and current audio
     $("#answer").empty()
     $('#guess1').empty()

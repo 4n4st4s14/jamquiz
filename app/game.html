@@ -158,58 +158,7 @@ Shows total points accumulated
       <div class="gifs" id="gifs-appear-here"></div>
 
 
-       <!-- <script type="text/javascript">
-
-$(document).ready(function(){
-
-  console.log("hello");
-//var song = $('#answer').text();
-//console.log("song", song);
-    $("#startGame").on( "click", function() {
-      console.log("HELLOOOOOOO")
-      var song = $('#answer').text();
-       console.log("song", song);
-      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        song + "&api_key=dc6zaTOxFJmzC&limit=5";
-
-      $.ajax({
-          url: queryURL,
-          method: "GET"
-        })
-
-        .done(function(response) {
-
-          var results = response.data;
-
-
-          for (var i = 0; i < results.length; i++) {
-
-            if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-
-              var gifs = $("<div class='item'>");
-
-              var rating = results[i].rating;
-
-              var p = $("<p>").text("Rating: " + rating);
-
-              var songImage = $("<img>");
-
-              songImage.attr("src", results[i].images.fixed_height.url);
-
-              gifs.append(p);
-              gifs.append(songImage);
-
-              $("#gifs-appear-here").prepend(gifs);
-            }
-
-          }
-        });
-    });
-
-  });
-
-</script> -->
-
+    
 
 
       </div>
