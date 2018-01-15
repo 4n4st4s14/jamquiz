@@ -241,8 +241,7 @@ h6 {
 font-size: 50px;
 };
 
-#timer
-{
+#timer{
 font-size: 40px;
 };
 
@@ -318,24 +317,26 @@ input#volume::-webkit-slider-thumb{
   overflow: auto;
 }
 
-button#play{
+button#startGame{
   width: 70px;
   height: 70px;
-  background:url("./images/if_play_126575.png") no-repeat;
+  margin: 15px;
+  /*background:url("./images/if_play_126575.png") no-repeat;*/
   float: left;
 }
 
 button#pause{
   width: 70px;
   height: 70px;
-  background:url("./images/if_play_126575.png") no-repeat;
+  margin: 15px;
+  /*background:url("./images/if_play_126575.png") no-repeat;*/
   float: left;
 }
 
 button#stop{
   width: 70px;
   height: 70px;
-  background:url("./images/if_play_126575.png") no-repeat;
+  /*background:url("./images/if_play_126575.png") no-repeat;*/
   float: left;
 }
 
@@ -352,7 +353,7 @@ button#prev{
 button#next{
   width: 70px;
   height: 70px;
-  background:url("./images/if_play_126575.png") no-repeat;
+  /*background:url("./images/if_play_126575.png") no-repeat;*/
   float: right;
   margin-top: 15px;
 
@@ -408,4 +409,15 @@ button#next{
 #tracker{
   position: relative;
   width: 100%;
+}
+
+.jumbotron{
+  max-width: 50%;
+  margin: 20px;
+  background-color: #316add;
+}
+
+
+#messageBoard{
+  font-size: 30px;
 }

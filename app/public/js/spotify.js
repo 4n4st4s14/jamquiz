@@ -1,6 +1,6 @@
 
-$("body").prepend('<audio id="winAudio"  src = "./audio/win.m4a" audio/>');
-$("body").prepend('<audio id="loseAudio"  src = "./audio/loserChorusClip.mp3" audio/>');
+$("body").prepend('<audio id="winAudio"  src = "./audio/winShort.mp3" audio/>');
+$("body").prepend('<audio id="loseAudio"  src = "./audio/loserChorus.mp3" audio/>');
 
 console.log("linked!");
 
@@ -58,6 +58,7 @@ function countDown() {
   time--;
 //displays time in html
   $("#timer").text(time);
+
   //if timer runs out with no correct guess, show message with answer
   if (time === 0) {
     $("#messageBoard").text("You lose. The correct answer was " + $("#answer").text());
@@ -75,9 +76,9 @@ function countDown() {
   } else if ($('#song-guess').val().trim().toLowerCase() == $("#answer").text().toLowerCase() && $('#song-guess').val().trim() !== "") {
 
 
-
+  clearInterval(gameTimer);
       $("#winAudio").get(0).play();
-
+      $("#song-guess").val("");
   //}
 
 
@@ -89,7 +90,7 @@ function countDown() {
         total += parseInt(userPoints);
 
 //PROBLEM: we need this value to add to itself after each round
-  $("#pointsPossible").text("Current score: " + total);
+  $("#pointsPossible").text(total);
       //if they match, pause the audio
       //reset the timer
       //reset time to 0

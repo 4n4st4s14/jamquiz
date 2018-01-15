@@ -24,7 +24,7 @@ module.exports = function(app) {
         };
         //spotify function
     //our songs :)
-    var songs = ['the fresh prince of bel-air', 'carry the zero', 'bodak yellow', 'Alexander Hamilton', 'Get Lucky', 'Formation', 'Toxic', 'Woo', 'Garden', 'Flu Shot', 'March Madness', 'All My Friends', 'Redbone'];
+    var songs = ['uptown funk', 'eye of the tiger', 'born to run', 'Alexander Hamilton', 'Get Lucky', 'show me love', 'Toxic', 'go your own way', 'call my maybe', 'i will always love you', 'call me', 'ebony and ivory', 'hot stuff'];
 
     var info;
     var previewUrl;
@@ -79,10 +79,6 @@ module.exports = function(app) {
           }
 
           getAllData(songs,function(data){
-          //  console.log('data');
-            // console.log(data);
-            // res.json(data)
-          //   console.log(data.length)
 
             for(var i=0; i< songs.length; i++){
                   //console.log(data[i].url);
@@ -91,50 +87,12 @@ module.exports = function(app) {
 
               titles.push(data[i].title);
 
-            //   to sort duplicates
-            // console.log(urls);
-            // console.log(titles);
-            // console.log('clicked');
 
-          //  res.json(data);/
          };
          res.json(data);
 
-          //};
-   //
-   //
-  //         //console.log(JSON.stringify(urls));
-  //         //sort duplicates
-  //         let uniqueArray = (a) => a.filter((el,i)=> a.indexOf(el) === i);
-  //        //console.log(uniqueArray(urls));
-  //       // console.log(data);
-   //
-  //         data.forEach(function(song){
-  //          //console.log('song', song.url);
-  //          //console.log(uniqueArray(urls)[0]);
-   //
-  //          //////works
-   //
-  //          if(uniqueArray(urls)[0] == song.url){
-  //            console.log("HELLOOOO");
-  //            console.log(song);
-  //            res.json(song);
-  //          }
-  //       //   //  ///////works
-  //         });
-  //         //res.json(uniqueArray(urls));
-   //
-  //       //  res.json(data);
-  //       });
-   //
-   //
-  //              //console.log(JSON.stringify(data));
-   //
-  //           //   res.json(dataArr);
-   //
-  //  //console.log(JSON.stringify(dataArr));
-   //
-  //   //res.json(dataArr)
+
+
 
   })
 })
